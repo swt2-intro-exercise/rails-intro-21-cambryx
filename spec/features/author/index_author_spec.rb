@@ -9,4 +9,9 @@ describe "Authors index page", type: :feature do
         visit authors_path
         expect(page).to have_css('table')
     end
+
+    it "should have a 'New' link" do
+        visit authors_path
+        expect(page).to have_link 'New', href: new_author_path
+    end
 end
