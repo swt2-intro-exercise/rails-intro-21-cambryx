@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe "Edit author page", type: :feature do
 
-    before(:all) do
+    before(:each) do
         @alan = FactoryBot.create :author
         visit edit_author_path(@alan)
     end
@@ -11,7 +11,6 @@ describe "Edit author page", type: :feature do
     end
 
     it "should have text inputs for an author's first name, last name and homepage" do
-        visit new_author_path
         expect(page).to have_field('author[first_name]')
         expect(page).to have_field('author[last_name]')
         expect(page).to have_field('author[homepage]')
