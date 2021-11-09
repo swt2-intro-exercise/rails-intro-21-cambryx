@@ -25,7 +25,11 @@ RSpec.describe "/papers", type: :request do
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    {
+      title: 'Paper Title',
+      venue: 'Venue',
+      year: true
+    }
   }
 
   describe "GET /index" do
@@ -90,14 +94,16 @@ RSpec.describe "/papers", type: :request do
   describe "PATCH /update" do
     context "with valid parameters" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        {
+          year: 1337
+        }
       }
 
       it "updates the requested paper" do
         paper = Paper.create! valid_attributes
         patch paper_url(paper), params: { paper: new_attributes }
         paper.reload
-        skip("Add assertions for updated state")
+        expect(paper.year).to eq(1337)
       end
 
       it "redirects to the paper" do
