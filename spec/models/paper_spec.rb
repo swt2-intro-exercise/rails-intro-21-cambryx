@@ -8,6 +8,6 @@ RSpec.describe Paper, type: :model do
 
   it "should have a list of authors" do
     paper = Paper.new
-    ewpect(paper.authors).to be_empty
+    expect(paper.authors).to be_empty
   end
 end
